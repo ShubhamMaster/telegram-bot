@@ -21,7 +21,7 @@ bot = TelegramClient('bot_session', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
 @bot.on(events.NewMessage)
 async def handle_message(event):
-    await event.respond("Hello! Your bot is working on Railway!")
+    await event.respond("Hello! Yourfgfgtrgb trbtr btr bot is working on Railway!")
 
 print("Bot is running...")
 bot.run_until_disconnected()
