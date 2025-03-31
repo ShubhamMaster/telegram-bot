@@ -53,24 +53,27 @@ CREDIT_WORDS = {
     r"\bThis is an AI-generated response\b": "This is a KKN-generated response",
 }
 
-# Function to save conversation history
+# Function to save conversation history in a single JSON file
 def save_conversation(user_id, user_name, message, response):
-    filename = f"chats/{user_name or user_id}.json"
-    os.makedirs("chats", exist_ok=True)
+    filename = "chat_history.json"
     
     try:
         if os.path.exists(filename):
             with open(filename, "r", encoding="utf-8") as file:
-                chat_history = json.load(file)
+                chat_data = json.load(file)
         else:
-            chat_history = []
+            chat_data = {}
     except:
-        chat_history = []
+        chat_data = {}
     
-    chat_history.append({"message": message, "response": response})
+    user_key = user_name or str(user_id)
+    if user_key not in chat_data:
+        chat_data[user_key] = []
+    
+    chat_data[user_key].append({"message": message, "response": response})
     
     with open(filename, "w", encoding="utf-8") as file:
-        json.dump(chat_history, file, indent=4, ensure_ascii=False)
+        json.dump(chat_data, file, indent=4, ensure_ascii=False)
 
 # Initialize Telegram Bot
 bot = TelegramClient('bot_session', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
