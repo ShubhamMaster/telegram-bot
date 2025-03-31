@@ -55,7 +55,7 @@ CREDIT_WORDS = {
 
 # Function to save conversation history in a single JSON file
 def save_conversation(user_id, user_name, message, response):
-    filename = "chat_history.json"
+filename = os.path.join(os.path.dirname(__file__), "chat_history.json")
     
     try:
         if os.path.exists(filename):
