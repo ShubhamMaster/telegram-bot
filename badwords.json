@@ -1,0 +1,31 @@
+{
+    "low": [
+        "stupid", "idiot", "dumb", "loser", "fool", "useless", "nonsense", "duffer",
+        "bewakoof", "ullu", "moorkh", "chirkut", "faltu", "nalayak", "bindok", "damrat",
+        "gadhav", "bakwas", "suvar", "kutrya", "zavade", "mhatara", "ranga", "phatichar",
+        "bewdi", "pakhru", "lodh", "tharki", "langda", "bheja fry", "pagal", "susti"
+    ],
+    "medium": [
+        "bastard", "moron", "jackass", "damn", "ass", "piss", "crap", "dipshit",
+        "harami", "chutiya", "bhosdike", "saala", "saali", "ullu ke pathe", "kuttiya", "gandu",
+        "gaand", "lavda", "lund", "bhaichod", "betichod", "tatti", "chinal", "bhadwa",
+        "bhandava", "khotey ki aulad", "soover", "lavander", "dukarya", "yedzavi",
+        "chodna", "chodu", "gaand mara", "lund pakad", "raand ka aulad", "laude ka baal",
+        "kutti ka bachcha", "gand faad", "raand ka", "baap chod", "maa chod", "bhadkhau",
+        "randi ka", "pille", "randwa", "jhantu", "najayaz aulad", "bhencho", "madarjat"
+    ],
+    "high": [
+        "fuck", "motherfucker", "bitch", "cunt", "asshole", "dickhead", "prick", "slut",
+        "whore", "cock", "cocksucker", "sonofabitch", "bullshit", "pissed", "arsehole", "jerk",
+        "jackass", "faggot", "nigger", "retard", "douchebag", "cum", "tits", "boobs", "suck",
+        "blowjob", "madarchod", "behenchod", "randichod", "bhenkelavde", "bhenkatakke", "tootahualund",
+        "aaichagho", "aaizavadya", "bochya", "phuknichya", "tichipucchi", "tujhyaaaicha",
+        "bulla", "gotya", "shivya", "chod", "muthmar", "nanga", "najayaz", "bakland",
+        "randi ka bacha", "maa ka bhosda", "gaand me lauda", "maderchod", "bhen ke lode",
+        "bhosde ka paani", "gaand ka keeda", "tujhya aaichi ghaal", "tujhya aaichi lavda",
+        "randi ke nateeje", "kamine ka launda", "gaand me ghus ja", "lund chus", "lund chat",
+        "chut ka paani", "bhen ka bhosda", "lund faad", "gand ke pille", "bhosdike nateeje",
+        "teri maa chod dunga", "teri bahan chod dunga", "tujhe maa ki chut ka kasam",
+        "lund marne wala", "jhantu baap ka beta", "bhenchod ka aulad", "randi ke aulaad"
+    ]
+}
