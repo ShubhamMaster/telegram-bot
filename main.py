@@ -53,34 +53,56 @@ CREDIT_WORDS = {
     r"\bThis is an AI-generated response\b": "This is a KKN-generated response",
 }
 
+# Function to save conversation history
+def save_conversation(user_id, user_name, message, response):
+    filename = f"chats/{user_name or user_id}.json"
+    os.makedirs("chats", exist_ok=True)
+    
+    try:
+        if os.path.exists(filename):
+            with open(filename, "r", encoding="utf-8") as file:
+                chat_history = json.load(file)
+        else:
+            chat_history = []
+    except:
+        chat_history = []
+    
+    chat_history.append({"message": message, "response": response})
+    
+    with open(filename, "w", encoding="utf-8") as file:
+        json.dump(chat_history, file, indent=4, ensure_ascii=False)
+
 # Initialize Telegram Bot
 bot = TelegramClient('bot_session', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
 @bot.on(events.NewMessage)
 async def handle_message(event):
-    user_message = event.text.lower()  # Convert to lowercase
+    user_message = event.text.lower()
+    user_id = event.sender_id
+    user_name = (await event.get_sender()).username or str(user_id)
 
     # Check for bad words and get severity level
     badword_level = detect_badword_level(user_message)
 
     if badword_level:
-        # If a bad word is found, respond using local responses.json
         reply_text = random.choice(response_data[badword_level])
     else:
-        # If no bad word is found, send the message to Gemini AI
         try:
             response = model.generate_content(user_message)
             if response and response.candidates:
                 reply_text = response.candidates[0].content.parts[0].text
             else:
-                reply_text = random.choice(response_data["neutral"])  # Neutral response
+                reply_text = random.choice(response_data["neutral"])
         except Exception as e:
-            reply_text = f"Error: {e}"  # Debugging response
+            reply_text = f"Error: {e}"
 
     # Replace AI-related credits with "KKN"
     for pattern, replacement in CREDIT_WORDS.items():
         reply_text = re.sub(pattern, replacement, reply_text, flags=re.IGNORECASE)
 
+    # Save conversation
+    save_conversation(user_id, user_name, event.text, reply_text)
+    
     await event.respond(reply_text)
 
 # Start the bot
