@@ -9,7 +9,8 @@ from telegram.ext import (
 from utils import fetch_erp_data
 
 # === CONFIGURATION ===
-BOT_TOKEN = "7888406641:AAHPDqV_NpQdnSW26xb3wiPLR-D7_cp__Dg"
+# BOT_TOKEN = "7888406641:AAHPDqV_NpQdnSW26xb3wiPLR-D7_cp__Dg"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 ACCESS_CODE = "KKN"
 ACCESS_TIMEOUT = timedelta(minutes=5)
 LOGIN_DIR = "login"
